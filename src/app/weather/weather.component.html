@@ -1,0 +1,122 @@
+<div class="ui inverted dimmer" [class.active]='loading'>
+    <div class="ui small text loader"></div>
+</div>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="/assets/img/icon.png" class="img" width="50px">
+        <a class="navbar-brand" href="/">Meteor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="jumbotron bg-white text-center">
+    <h3 class="display-4">Weather Details</h3>
+    <hr>
+
+    <!-- 
+        <div class="container-sm ">
+            <div class="ui searchbox container-sm">
+                <div class="mx-auto">
+                    <div class="form-group col-1g-5 mx-auto">
+                        <label for="country">
+                        </label>
+                        <form [formGroup]="weatherForm">
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="weatherLocation" formControlName="location"
+                                    placeholder="Please input a Location" />
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-md"
+                                    (click)="searchWeather(weatherForm.value)" [disabled]="!weatherForm.valid">
+                                    Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    <!-- <div class="card shadow" *ngIf="weatherFound">
+                <div class="card-body">
+                    <h5 class="card-title">{{description}}</h5>
+                    <h5 class="card-title">{{location}}</h5>
+                    <p class="card-text">{{temperature}}</p>
+                    <img src="{{weatherIcon}}">
+                    <img [src]="weatherIcon">
+                </div>
+            </div>
+        -->
+
+    <!-- -------------------------------------------------------------------------------------------------------- -->
+
+
+
+    <div class="container d-flex justify-content-center">
+        <div class="weather">
+            <div class="row">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    <form [formGroup]="weatherForm">
+
+                        <div class="ui fluid icon input">
+                            <input type="text" formControlName="location" placeholder="Please input a Location">
+                            <i class="inverted circular search link icon"
+                                (click)="searchWeather(weatherForm.value)"></i>
+                        </div>
+                    </form>
+
+                    <h4 class="text-center" *ngIf="shoMessage">
+                        <div class="content show hide message">
+                            <div [ngClass]= "messageClass">{{message}}</div>
+                        </div>
+                    </h4>
+
+
+                    <div class="card" *ngIf="weatherFound"> <span class="icon"><img class="rounded-circle"
+                                [src]="weatherIcon" /></span>
+                        <div class="title">
+                            <p>{{location}}</p>
+                        </div>
+                        <div class="temp">{{temperature}}<sup>&deg;</sup></div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="header">Desc</div>
+                                <div class="value" style="font-weight: 600;">{{description}}</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="header">Date</div>
+                                <div class="value" style="font-weight: 600;">{{localTime | date}}</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="header">Country</div>
+                                <div class="value" style="font-weight: 600;">{{country}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-3"></div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------------------------------------------------------------- -->
