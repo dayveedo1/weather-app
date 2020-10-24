@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ApiserviceService {
   
-  baseUrl = 'http://api.weatherstack.com/';
+  baseUrl = 'https://api.weatherstack.com/';
   accessKey = '11cc2c7c579d668aaa99838d3f25b1af';
 
   constructor(private _http: HttpClient) { }
